@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome to myTinder</title>
+</head>
+table>
+<thead>
+<tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Gender</th>
+</tr>
+</thead>
+<tbody>
+<!-- if true, display this       -->
+<tr th:if="${!person}">
+    <td colspan="2"> No Person Available</td>
+</tr>
+<!--  otherwise, iterate over list and display info      -->
+<td><span th:text="${person.id}">Id</span></td>
+<td><span th:text="${person.name}">Name</span></td>
+<td><span th:text="${person.surname}">Surname</span></td>
+<td><span th:text="${person.gender}">Gender</span></td>
+
+</tbody>
+<tr th:each="person : ${people}"/>
+</table>
+</html>

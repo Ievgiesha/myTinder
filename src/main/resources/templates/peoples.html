@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Success</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+
+<table>
+    <thead>
+    <tr>
+        <th> Id </th>
+        <th> Name </th>
+        <th> Surname </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${people.empty}">
+        <td colspan="2"> No Person Available </td>
+    </tr>
+    <tr th:each="person : ${people}">
+        <td><span th:text="${person.id}"> Id </span></td>
+        <td><span th:text="${person.name}"> Name </span></td>
+        <td><span th:text="${person.surname}"> Surname </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</html>

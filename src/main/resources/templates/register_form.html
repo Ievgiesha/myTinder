@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+        input[type=text], input[type=password], select {
+            display: inline-block;
+            width: 200px;
+        }
+        input[type=radio] {
+            margin-left: 45px;
+        }
+        input[type=checkbox] {
+            margin-right: 190px;
+        }
+        button {
+            padding: 5px;
+            margin: 10px;
+        }
+    </style>
+    <title>Person's  Registration</title>
+</head>
+<body>
+<div align="center">
+    <h1>Person Registration</h1>
+    <form action="#" th:action="@{/register}" method="post" th:object="${person}">
+        <label>id:</label>
+        <input type="text" th:field="*{id}" /><br/>
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <label>Surname:</label>
+        <input type="text" th:field="*{surname}" /><br/>
+
+     <!--   <label>Phone number:</label>
+        <input type="text" th:field="*{phoneNumber}" /><br/>
+
+        <label>Address:</label>
+        <input type="text" th:field="*{address}" /><br/>
+
+        <label>E-mail:</label>
+        <input type="text" th:field="*{email}" /><br/>
+
+
+        <label>Age:</label>
+        <input type="text" th:field="*{age}" /><br/>
+
+        <label>Education:</label>
+        <input type="text" th:field="*{education}" /><br/>-->
+
+       <!-- <label>Gender:</label>
+        <input type="radio" th:field="*{gender}" value="Male" />Male
+        <input type="radio" th:field="*{gender}" value="Female" />Female<br/>
+        <input type="radio" th:field="*{gender}" value="Outofgender" />Outofgender<br/>-->
+
+        <label>Gender:</label>
+        <select th:field="*{gender}">
+            <option th:each="p : ${listOfGender}" th:value="${p}" th:text="${p}" />
+        </select>
+        <br/>
+
+      <!--  <label>Note:</label>
+        <textarea rows="5" cols="25" th:field="*{note}"></textarea>
+        <br/>-->
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
